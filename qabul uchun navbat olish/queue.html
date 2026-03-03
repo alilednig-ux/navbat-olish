@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbat Olish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-btn">← Orqaga</a>
+            <h1 id="doctorName">Shifokor</h1>
+            <p id="doctorSpecialty"></p>
+        </header>
+
+        <div id="scheduleInfo" class="schedule-info">
+            <!-- Ish vaqti va statistika -->
+        </div>
+
+        <div class="queue-form">
+            <h2>Navbat Olish</h2>
+            <form id="queueForm">
+                <div class="form-group">
+                    <label>Ismingiz:</label>
+                    <input type="text" id="patientName" required>
+                </div>
+                <div class="form-group">
+                    <label>Yoshingiz:</label>
+                    <input type="number" id="patientAge" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label>Qayerdan (Manzil):</label>
+                    <input type="text" id="patientAddress" placeholder="Shahar, tuman" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefon raqamingiz:</label>
+                    <input type="tel" id="patientPhone" placeholder="998901234567" maxlength="12" required>
+                    <small style="color: #666;">Faqat raqamlar, masalan: 998901234567</small>
+                </div>
+                <div class="form-group">
+                    <label>📅 Qabul kunini tanlang:</label>
+                    <div class="date-input-wrapper">
+                        <input type="date" id="appointmentDate" placeholder="kun.oy.yil" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>🕐 Bo'sh vaqtlardan birini tanlang:</label>
+                    <select id="appointmentTime" required>
+                        <option value="">Avval sanani tanlang</option>
+                    </select>
+                    <small id="timeSlotInfo" style="color: #666; display: block; margin-top: 5px;"></small>
+                </div>
+                <button type="submit" class="btn-primary">Navbat Olish</button>
+            </form>
+            <button id="checkQueueBtn" class="btn-secondary">Navbatimni Tekshirish</button>
+        </div>
+
+        <div id="queueResult" class="queue-result hidden">
+            <h2>✅ Navbat Muvaffaqiyatli Olindi!</h2>
+            <div class="ticket">
+                <p><strong>Navbat raqamingiz:</strong> <span id="queueNumber" class="big-number"></span></p>
+                <p><strong>Shifokor:</strong> <span id="resultDoctor"></span></p>
+                <p><strong>Bemor:</strong> <span id="resultPatient"></span></p>
+                <p><strong>Vaqt:</strong> <span id="resultTime"></span></p>
+                <p><strong>Taxminiy kutish:</strong> <span id="resultWaitTime"></span></p>
+                <p class="note">💡 Telefon raqamingizni eslab qoling - navbatni tekshirish uchun kerak bo'ladi</p>
+            </div>
+            <button onclick="location.href='index.html'" class="btn-secondary">Bosh Sahifa</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="calendar-functions.js"></script>
+    <script>
+        initQueuePage();
+    </script>
+</body>
+</html>

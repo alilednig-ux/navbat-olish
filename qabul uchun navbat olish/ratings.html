@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifokorlar Reytingi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="admin.html" class="back-btn">← Admin Panelga Qaytish</a>
+            <h1>⭐ Shifokorlar Reytingi</h1>
+            <p>Bemorlar baholari asosida</p>
+        </header>
+
+        <div id="ratingsContainer">
+            <div class="skeleton" style="height: 300px; border-radius: 15px;"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script type="module">
+        import { initRatingsPanel } from './js/ratings-panel.js';
+        import './js/dark-mode.js';
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mening Bemorlarim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="doctor.html" class="back-btn">← Orqaga</a>
+            <h1 id="doctorPanelName">Shifokor Paneli</h1>
+            <p id="doctorPanelSpecialty"></p>
+        </header>
+
+        <div class="doctor-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="todayPatients">0</div>
+                    <div class="stat-label">Bugungi Bemorlar</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏰</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="waitingNow">0</div>
+                    <div class="stat-label">Navbatda</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="doctorRating">0.0</div>
+                    <div class="stat-label">Reyting</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-controls">
+            <button onclick="loadDoctorPatients()" class="btn-secondary">Yangilash</button>
+        </div>
+
+        <div id="doctorPatientsContainer">
+            <!-- Bemorlar ro'yxati -->
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="calendar-functions.js"></script>
+    <script>
+        initDoctorPanel();
+    </script>
+</body>
+</html>

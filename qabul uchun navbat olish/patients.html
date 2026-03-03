@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemorlar Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="admin.html" class="back-btn">← Admin Panelga Qaytish</a>
+            <h1>👥 Bemorlar Paneli</h1>
+            <p>Barcha bemorlar ma'lumotlari</p>
+        </header>
+
+        <div class="filter-controls">
+            <input type="text" id="searchInput" placeholder="🔍 Bemor ismi yoki telefon raqami bo'yicha qidirish..." class="search-input">
+            <select id="doctorFilter" class="filter-select">
+                <option value="all">Barcha shifokorlar</option>
+            </select>
+            <select id="statusFilter" class="filter-select">
+                <option value="all">Barcha holatlar</option>
+            </select>
+            <button onclick="location.reload()" class="btn-secondary">🔄 Yangilash</button>
+        </div>
+
+        <div class="patients-stats">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="totalPatients">0</div>
+                    <div class="stat-label">Jami Bemorlar</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⏰</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="waitingPatients">0</div>
+                    <div class="stat-label">Kutayotganlar</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="completedPatients">0</div>
+                    <div class="stat-label">Qabul qilinganlar</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="patientsContainer">
+            <div class="skeleton" style="height: 400px; border-radius: 15px;"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script type="module">
+        import { initPatientsPanel } from './js/patients-panel.js';
+        import './js/dark-mode.js';
+    </script>
+</body>
+</html>

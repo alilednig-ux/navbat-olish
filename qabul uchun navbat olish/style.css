@@ -1,0 +1,1191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #666;
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.doctor-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.doctor-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.doctor-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.doctor-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.queue-count {
+    background: #667eea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.queue-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-primary, .btn-secondary, .btn-danger {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.queue-result {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.ticket {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px dashed #667eea;
+}
+
+.ticket p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.back-btn {
+    display: inline-block;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.admin-link {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.admin-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-controls button {
+    flex: 1;
+}
+
+.doctor-queue {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.doctor-queue h3 {
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+}
+
+.queue-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.queue-item-info {
+    flex: 1;
+}
+
+.queue-item button {
+    padding: 8px 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.queue-item button:hover {
+    background: #c82333;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Yangi stillar */
+.doctor-schedule {
+    margin: 10px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.doctor-status {
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-working {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-lunch {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-closed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.doctor-unavailable {
+    opacity: 0.7;
+}
+
+.wait-time {
+    display: block;
+    margin-top: 8px;
+    color: #666;
+    font-size: 13px;
+}
+
+.schedule-info {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.schedule-info p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.big-number {
+    font-size: 48px;
+    color: #667eea;
+    font-weight: bold;
+}
+
+.note {
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.stats-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.queue-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.queue-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-complete, .btn-remove {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-complete {
+    background: #28a745;
+    color: white;
+}
+
+.btn-complete:hover {
+    background: #218838;
+}
+
+.btn-remove {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-remove:hover {
+    background: #c82333;
+}
+
+.current-badge {
+    background: #28a745;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.completed {
+    opacity: 0.6;
+    background: #e9ecef !important;
+}
+
+
+/* Bemorlar paneli stillari */
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.patients-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat-icon {
+    font-size: 40px;
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.patients-table {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.patients-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.patients-table thead {
+    background: #f8f9fa;
+}
+
+.patients-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #667eea;
+}
+
+.patients-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.patients-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.completed-row {
+    opacity: 0.6;
+    background: #f0f0f0;
+}
+
+.patient-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.doctor-icon-small {
+    font-size: 24px;
+}
+
+.doctor-name-small {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.doctor-specialty-small {
+    font-size: 12px;
+    color: #666;
+}
+
+.duration-badge {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-waiting {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.no-patients {
+    background: white;
+    padding: 60px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.no-patients p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+    .patients-table {
+        overflow-x: scroll;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+    
+    .patients-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Reyting stillari */
+.ratings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.rating-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.rating-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.rating-rank {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.rating-stars {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.rating-score {
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
+    margin: 10px 0;
+}
+
+.rating-count {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Shifokor paneli stillari */
+.doctor-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.panel-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.doctor-patients-list {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.doctor-patients-list h2 {
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #667eea;
+}
+
+.patient-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s;
+}
+
+.patient-card:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.completed-patient {
+    opacity: 0.6;
+    border-left-color: #28a745;
+}
+
+.patient-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #667eea;
+    min-width: 60px;
+    text-align: center;
+}
+
+.patient-details {
+    flex: 1;
+}
+
+.patient-details h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.patient-details p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.btn-complete-large {
+    padding: 12px 24px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-complete-large:hover {
+    background: #218838;
+}
+
+/* Modal stillari */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.rating-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.star-btn {
+    font-size: 48px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.star-btn:hover {
+    transform: scale(1.2);
+}
+
+.star-btn.selected {
+    color: #ffd700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .patient-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .patient-number {
+        font-size: 28px;
+    }
+    
+    .ratings-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .doctor-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Bugungi bemorlar uchun stil */
+.today-patient {
+    border-left: 4px solid #28a745 !important;
+    background: #f0fff4 !important;
+}
+
+.today-badge {
+    background: #28a745;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.stat-sublabel {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+}
+
+
+/* Kalendar va vaqt stillari */
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+}
+
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.date-group {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.today-group {
+    background: #e8f5e9;
+    border: 2px solid #4caf50;
+}
+
+.date-header {
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+    font-size: 16px;
+}
+
+.time-badge {
+    background: #2196f3;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+
+/* Date input placeholder o'zgartirish */
+.form-group input[type="date"]::-webkit-datetime-edit-text,
+.form-group input[type="date"]::-webkit-datetime-edit-month-field,
+.form-group input[type="date"]::-webkit-datetime-edit-day-field,
+.form-group input[type="date"]::-webkit-datetime-edit-year-field {
+    color: transparent;
+}
+
+.form-group input[type="date"]:focus::-webkit-datetime-edit-text,
+.form-group input[type="date"]:focus::-webkit-datetime-edit-month-field,
+.form-group input[type="date"]:focus::-webkit-datetime-edit-day-field,
+.form-group input[type="date"]:focus::-webkit-datetime-edit-year-field {
+    color: #333;
+}
+
+.form-group input[type="date"]::before {
+    content: attr(placeholder);
+    color: #999;
+    margin-right: 10px;
+}
+
+.form-group input[type="date"]:focus::before,
+.form-group input[type="date"]:valid::before {
+    content: "";
+}
+
+/* Date input uchun custom placeholder */
+.date-input-wrapper {
+    position: relative;
+}
+
+.date-input-wrapper input[type="date"] {
+    position: relative;
+}
+
+.date-input-wrapper::before {
+    content: 'kun.oy.yil';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+.date-input-wrapper input[type="date"]:focus::before,
+.date-input-wrapper input[type="date"]:valid::before {
+    display: none;
+}
+
+.date-input-wrapper input[type="date"]:focus ~ ::before,
+.date-input-wrapper input[type="date"]:valid ~ ::before {
+    display: none;
+}
+
+
+/* Date input empty holati uchun */
+.form-group input[type="date"].empty-date::-webkit-datetime-edit-fields-wrapper {
+    visibility: hidden;
+}
+
+.form-group input[type="date"].empty-date::before {
+    content: 'kun.oy.yil';
+    color: #999;
+    position: absolute;
+    left: 12px;
+}
+
+.form-group input[type="date"]:not(.empty-date)::before {
+    content: '';
+}
+
+
+/* Global Loader */
+.global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.global-loader p {
+    color: white;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Toast Messages */
+.toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    z-index: 10000;
+    transition: bottom 0.3s ease;
+    min-width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+.toast-info {
+    background: #2196f3;
+}
+
+.toast-success {
+    background: #4caf50;
+}
+
+.toast-warning {
+    background: #ff9800;
+}
+
+.toast-error {
+    background: #f44336;
+}
+
+/* Pulse Animation for Current Queue */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+    }
+}
+
+.queue-item.current {
+    animation: pulse 2s infinite;
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button, .btn-primary, .btn-secondary, .btn-danger {
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.doctor-card, .patient-card, .rating-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .dark-mode-toggle,
+    .admin-controls,
+    .panel-controls,
+    .filter-controls,
+    .queue-actions,
+    button {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+
+/* Reyting taqsimoti stillari */
+.rating-distribution {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.rating-distribution h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.rating-label {
+    min-width: 50px;
+    font-size: 13px;
+    color: #666;
+}
+
+.rating-progress {
+    flex: 1;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rating-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+    transition: width 0.3s ease;
+}
+
+.rating-percentage {
+    min-width: 40px;
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Dark mode uchun */
+.dark-mode .rating-distribution h4 {
+    color: #e0e0e0;
+}
+
+.dark-mode .rating-label,
+.dark-mode .rating-percentage {
+    color: #b0b0b0;
+}
+
+.dark-mode .rating-progress {
+    background: #1e1e1e;
+}
+
+/* Tashxis cell */
+.diagnosis-cell {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.diagnosis-cell strong {
+    color: #667eea;
+}
+
+.diagnosis-cell small {
+    color: #999;
+}
