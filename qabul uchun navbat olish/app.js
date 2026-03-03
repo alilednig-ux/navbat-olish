@@ -11,6 +11,16 @@ const doctors = [
         lunchEnd: "14:00",
         avgTime: 15 // har bir bemor uchun o'rtacha vaqt (daqiqa)
     },
+
+
+
+
+
+
+
+
+
+    
     { 
         id: 2, 
         name: "Dr. Karimova Dilnoza", 
